@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>PPT Multiplayer</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<h1>✊📄✂ PPT Multiplayer</h1>
+
+<h2 id="msg">Jogador 1 escolha</h2>
+
+<div class="container">
+
+<div class="box" id="player1">
+<h2>Jogador 1</h2>
+
+<button onclick="select(1,'pedra',this)">Pedra</button>
+<button onclick="select(1,'papel',this)">Papel</button>
+<button onclick="select(1,'tesoura',this)">Tesoura</button>
+
+<p id="show1">❓</p>
+</div>
+
+<div class="box" id="player2">
+<h2>Jogador 2</h2>
+
+<button onclick="select(2,'pedra',this)">Pedra</button>
+<button onclick="select(2,'papel',this)">Papel</button>
+<button onclick="select(2,'tesoura',this)">Tesoura</button>
+
+<p id="show2">❓</p>
+</div>
+
+</div>
+
+<h2 id="result"></h2>
+
+<button onclick="reset()">Reiniciar</button>
+
+<script src="scrip.js"></script>
+</body>
+</html>
