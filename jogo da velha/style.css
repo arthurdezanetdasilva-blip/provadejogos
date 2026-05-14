@@ -1,94 +1,226 @@
+/* =========================
+   RESET
+========================= */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Poppins,sans-serif;
+    -webkit-tap-highlight-color:transparent;
+}
+
+/* =========================
+   BODY
+========================= */
 body{
     background:#050816;
     color:white;
     text-align:center;
-    font-family:Poppins,sans-serif;
+
     min-height:100vh;
-    padding:20px;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+
+    padding:clamp(12px,3vw,30px);
+
     overflow-x:hidden;
 }
 
-#board{
-    display:grid;
-    grid-template-columns:repeat(3,minmax(80px,100px));
-    gap:8px;
-    justify-content:center;
-    margin:20px auto;
-    width:100%;
-    max-width:340px;
+/* =========================
+   TÍTULO
+========================= */
+h1{
+    font-size:clamp(1.6rem,6vw,3.2rem);
+
+    margin-bottom:20px;
+
+    line-height:1.2;
+
+    background:linear-gradient(90deg,#00e5ff,#7c4dff);
+
+    background-clip:text;
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+
+    word-break:break-word;
 }
 
+/* =========================
+   TEXTO
+========================= */
+p{
+    font-size:clamp(.85rem,2.5vw,1rem);
+
+    opacity:.8;
+
+    margin-top:10px;
+
+    line-height:1.5;
+}
+
+/* =========================
+   TABULEIRO
+========================= */
+#board{
+    display:grid;
+
+    grid-template-columns:repeat(3,minmax(70px,1fr));
+
+    gap:clamp(4px,1.5vw,10px);
+
+    justify-content:center;
+
+    margin:20px auto;
+
+    width:min(95vw,360px);
+}
+
+/* =========================
+   CÉLULAS
+========================= */
 .cell{
     width:100%;
+
     aspect-ratio:1/1;
+
     background:#1e293b;
+
     display:flex;
     align-items:center;
     justify-content:center;
-    font-size:clamp(2rem,8vw,40px);
+
+    font-size:clamp(1.8rem,8vw,3rem);
+
     cursor:pointer;
-    transition:0.2s;
-    border-radius:10px;
+
+    transition:.25s;
+
+    border-radius:clamp(8px,2vw,16px);
+
+    user-select:none;
 }
 
 .cell:hover{
     background:#334155;
     transform:scale(1.03);
+    box-shadow:0 0 15px #00e5ff55;
 }
 
+.cell:active{
+    transform:scale(.96);
+}
+
+/* =========================
+   BOTÃO VOLTAR
+========================= */
 .voltar{
-    display:inline-block;
-    margin-top:15px;
+    display:inline-flex;
+
+    align-items:center;
+    justify-content:center;
+
+    margin-top:20px;
+
+    min-height:48px;
+
+    padding:12px 22px;
+
+    width:min(90vw,260px);
+
     color:white;
+
     text-decoration:none;
-    opacity:0.7;
-    transition:.2s;
-    font-size:clamp(.9rem,3vw,1rem);
+
+    border-radius:14px;
+
+    background:linear-gradient(90deg,#00e5ff,#7c4dff);
+
+    transition:.3s;
+
+    font-size:clamp(.85rem,2.8vw,1rem);
+
+    font-weight:bold;
 }
 
 .voltar:hover{
-    opacity:1;
-    color:#00e5ff;
+    transform:scale(1.04);
+    box-shadow:0 0 15px #00e5ff;
 }
 
-/* TABLETS */
+/* =========================
+   TABLETS
+========================= */
 @media(max-width:768px){
 
-    #board{
-        max-width:300px;
-        gap:6px;
+    body{
+        justify-content:flex-start;
+        padding-top:40px;
     }
 
 }
 
-/* CELULARES */
+/* =========================
+   CELULARES
+========================= */
 @media(max-width:500px){
 
-    body{
-        padding:15px;
-    }
-
     #board{
-        grid-template-columns:repeat(3,minmax(70px,1fr));
-        max-width:260px;
-        gap:5px;
+        width:min(95vw,300px);
     }
 
     .cell{
-        border-radius:8px;
+        border-radius:10px;
     }
 
 }
 
-/* CELULARES PEQUENOS */
+/* =========================
+   CELULARES PEQUENOS
+========================= */
 @media(max-width:350px){
 
+    h1{
+        font-size:1.5rem;
+    }
+
     #board{
-        max-width:220px;
+        width:95vw;
+        gap:4px;
     }
 
     .cell{
-        font-size:1.8rem;
+        font-size:1.6rem;
+    }
+
+    .voltar{
+        font-size:.82rem;
+        padding:10px 16px;
+    }
+
+}
+
+/* =========================
+   TELAS GRANDES / TV
+========================= */
+@media(min-width:1400px){
+
+    #board{
+        width:400px;
+    }
+
+    .cell{
+        font-size:3.5rem;
+    }
+
+}
+
+@media(min-width:1920px){
+
+    body{
+        zoom:1.1;
     }
 
 }

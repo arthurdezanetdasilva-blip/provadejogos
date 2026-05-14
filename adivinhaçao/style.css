@@ -1,113 +1,181 @@
-/* RESET BÁSICO */
+/* =========================
+   RESET
+========================= */
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
     font-family:'Poppins',sans-serif;
+    -webkit-tap-highlight-color:transparent;
 }
 
-/* BODY */
+/* =========================
+   BODY
+========================= */
 body{
     min-height:100vh;
+
     display:flex;
     flex-direction:column;
     align-items:center;
     justify-content:center;
 
     background:radial-gradient(circle at top,#0b1020,#050816);
+
     color:white;
-    padding:20px;
+
+    padding:clamp(12px,3vw,30px);
+
     overflow-x:hidden;
+
     position:relative;
 }
 
-/* LUZES DE FUNDO */
+/* =========================
+   LUZES FUNDO
+========================= */
 body::before{
     content:"";
+
     position:absolute;
+
     width:400px;
     height:400px;
+
     background:#00e5ff;
+
     filter:blur(150px);
+
     top:-100px;
     left:-100px;
+
     opacity:0.3;
+
     z-index:0;
 }
 
 body::after{
     content:"";
+
     position:absolute;
+
     width:400px;
     height:400px;
+
     background:#7c4dff;
+
     filter:blur(150px);
+
     bottom:-100px;
     right:-100px;
+
     opacity:0.3;
+
     z-index:0;
 }
 
-/* CARD */
-.card{
-    width:100%;
-    max-width:420px;
-
-    background:rgba(255,255,255,0.05);
-    padding:30px;
-    border-radius:20px;
-
-    backdrop-filter:blur(15px);
-    border:1px solid rgba(255,255,255,0.1);
-
-    box-shadow:0 0 30px rgba(0,229,255,0.1);
-
-    text-align:center;
-    z-index:1;
-}
-
-/* TÍTULO */
+/* =========================
+   TÍTULO
+========================= */
 h1{
-    font-size:clamp(2rem,6vw,2.5rem);
+    font-size:clamp(1.7rem,6vw,3rem);
+
     margin-bottom:20px;
 
     background:linear-gradient(90deg,#00e5ff,#7c4dff);
+
     background-clip:text;
     -webkit-background-clip:text;
     -webkit-text-fill-color:transparent;
 
     text-align:center;
+
     line-height:1.2;
+
+    z-index:1;
+
+    word-break:break-word;
 }
 
-/* TEXTOS */
+/* =========================
+   CARD
+========================= */
+.card{
+    width:100%;
+    max-width:420px;
+
+    background:rgba(255,255,255,0.05);
+
+    padding:clamp(18px,4vw,30px);
+
+    border-radius:20px;
+
+    backdrop-filter:blur(15px);
+
+    border:1px solid rgba(255,255,255,0.1);
+
+    box-shadow:0 0 30px rgba(0,229,255,0.1);
+
+    text-align:center;
+
+    z-index:1;
+}
+
+/* =========================
+   TEXTOS
+========================= */
 p{
     margin:10px 0;
+
     opacity:0.8;
-    font-size:clamp(.9rem,2.5vw,1rem);
+
+    font-size:clamp(.85rem,2.5vw,1rem);
+
     line-height:1.5;
 }
 
-/* INPUTS */
-input{
-    width:100%;
-    max-width:300px;
+/* =========================
+   MENSAGENS
+========================= */
+h2{
+    margin-top:15px;
 
-    padding:12px;
-    margin:10px 0;
+    font-size:clamp(1rem,4vw,1.5rem);
+
+    color:#00e5ff;
+
+    text-align:center;
+
+    line-height:1.4;
+}
+
+/* =========================
+   INPUT
+========================= */
+input{
+    width:min(90vw,300px);
+
+    padding:14px;
+
+    margin:15px 0;
 
     border:none;
-    border-radius:12px;
+
+    border-radius:14px;
 
     background:rgba(255,255,255,0.08);
+
     color:white;
+
     outline:none;
 
-    backdrop-filter:blur(10px);
     border:1px solid rgba(255,255,255,0.1);
 
-    transition:0.3s;
-    font-size:1rem;
+    transition:.3s;
+
+    font-size:clamp(.9rem,2.5vw,1rem);
+
+    text-align:center;
 }
 
 input:focus{
@@ -115,115 +183,135 @@ input:focus{
     box-shadow:0 0 10px #00e5ff;
 }
 
-/* BOTÕES */
-button{
-    width:100%;
-    max-width:300px;
+/* REMOVE SETAS */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button{
+    -webkit-appearance:none;
+    margin:0;
+}
 
-    padding:12px 20px;
-    margin:10px 0;
+/* =========================
+   BOTÕES
+========================= */
+button{
+    width:min(90vw,300px);
+
+    min-height:48px;
+
+    padding:12px 22px;
+
+    margin:8px 0;
 
     border:none;
-    border-radius:12px;
-    cursor:pointer;
+
+    border-radius:14px;
 
     background:linear-gradient(90deg,#00e5ff,#7c4dff);
+
     color:white;
+
+    font-size:clamp(.85rem,2.8vw,1rem);
+
     font-weight:bold;
 
-    transition:0.3s;
-    font-size:1rem;
+    cursor:pointer;
+
+    transition:.3s;
 }
 
 button:hover{
-    transform:scale(1.03);
+    transform:scale(1.04);
     box-shadow:0 0 15px #00e5ff;
 }
 
-/* MENSAGEM */
-h2{
-    margin-top:20px;
-    font-size:clamp(1.2rem,4vw,1.5rem);
-    color:#00e5ff;
-    text-align:center;
-    line-height:1.4;
+button:active{
+    transform:scale(.96);
 }
 
-/* LINK */
-a{
-    display:inline-block;
-    margin-top:25px;
-
-    color:white;
-    text-decoration:none;
-    opacity:0.7;
-
-    transition:0.3s;
-    font-size:.95rem;
+button:disabled{
+    opacity:.5;
+    cursor:not-allowed;
 }
 
-a:hover{
-    opacity:1;
-    color:#00e5ff;
-}
-
-/* LINHA */
-hr{
-    border:0;
-    height:1px;
-    background:rgba(255,255,255,0.2);
-    margin:15px 0;
-}
-
-/* TABLETS */
+/* =========================
+   TABLETS
+========================= */
 @media(max-width:768px){
 
+    body{
+        justify-content:flex-start;
+        padding-top:40px;
+    }
+
     .card{
-        padding:25px;
         border-radius:18px;
     }
 
 }
 
-/* CELULARES */
+/* =========================
+   CELULARES
+========================= */
 @media(max-width:500px){
 
     body{
         padding:15px;
     }
 
-    .card{
-        padding:20px;
-        border-radius:16px;
+    h1{
+        font-size:2rem;
     }
 
-    input,
-    button{
-        max-width:100%;
+    .card{
+        border-radius:16px;
     }
 
 }
 
-/* CELULARES PEQUENOS */
+/* =========================
+   CELULARES PEQUENOS
+========================= */
 @media(max-width:350px){
 
-    .card{
-        padding:18px;
+    body{
+        padding:12px;
     }
 
     h1{
-        font-size:1.8rem;
+        font-size:1.5rem;
     }
 
-    p,
-    a{
-        font-size:.85rem;
+    p{
+        font-size:.82rem;
     }
 
-    input,
-    button{
-        padding:11px;
-        font-size:.9rem;
+    h2{
+        font-size:1rem;
+    }
+
+    button,
+    input{
+        font-size:.82rem;
+        padding:10px 14px;
+    }
+
+}
+
+/* =========================
+   TELAS GRANDES / TV
+========================= */
+@media(min-width:1400px){
+
+    .card{
+        max-width:500px;
+    }
+
+}
+
+@media(min-width:1920px){
+
+    body{
+        zoom:1.1;
     }
 
 }
