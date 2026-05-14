@@ -2,43 +2,40 @@
 <html lang="pt-br">
 <head>
 <meta charset="UTF-8">
-<title>PPT Multiplayer</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pedra Papel Tesoura Multiplayer</title>
 <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+
+<div class="game">
 
 <h1>✊📄✂ PPT Multiplayer</h1>
 
-<h2 id="msg">Jogador 1 escolha</h2>
+<div id="inicio">
 
-<div class="container">
+<input type="text" id="j1" placeholder="Nome Jogador 1">
+<input type="text" id="j2" placeholder="Nome Jogador 2">
 
-<div class="box" id="player1">
-<h2>Jogador 1</h2>
-
-<button onclick="select(1,'pedra',this)">Pedra</button>
-<button onclick="select(1,'papel',this)">Papel</button>
-<button onclick="select(1,'tesoura',this)">Tesoura</button>
-
-<p id="show1">❓</p>
-</div>
-
-<div class="box" id="player2">
-<h2>Jogador 2</h2>
-
-<button onclick="select(2,'pedra',this)">Pedra</button>
-<button onclick="select(2,'papel',this)">Papel</button>
-<button onclick="select(2,'tesoura',this)">Tesoura</button>
-
-<p id="show2">❓</p>
-</div>
+<button onclick="iniciar()">▶ Iniciar</button>
 
 </div>
 
-<h2 id="result"></h2>
+<div id="jogo" class="hidden">
 
-<button onclick="reset()">Reiniciar</button>
+<h2 id="vez">Vez do Jogador</h2>
+
+<div class="escolhas">
+<button onclick="escolher('pedra')">✊ Pedra</button>
+<button onclick="escolher('papel')">📄 Papel</button>
+<button onclick="escolher('tesoura')">✂️ Tesoura</button>
+</div>
+
+<div id="msg"></div>
+
+</div>
+
+</div>
 
 <script src="scrip.js"></script>
 </body>

@@ -1,53 +1,92 @@
-body{
+*{
     margin:0;
-    font-family:Poppins;
-    background:radial-gradient(circle,#0b1020,#050816);
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
+    -webkit-tap-highlight-color:transparent;
+    }
+    
+    body{
+    background:linear-gradient(135deg,#020617,#111827,#1e1b4b);
     color:white;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+    }
+    
+    .game{
+    width:100%;
+    max-width:500px;
+    background:#111827;
+    padding:30px;
+    border-radius:25px;
     text-align:center;
+    box-shadow:0 0 25px #3b82f655;
     }
     
     h1{
-    background:linear-gradient(90deg,#00e5ff,#7c4dff);
-    background-clip:text;
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
+    margin-bottom:20px;
+    font-size:34px;
+    color:#38bdf8;
     }
     
-    .container{
-    display:flex;
-    justify-content:space-around;
-    margin-top:30px;
+    h2{
+    margin-bottom:20px;
     }
     
-    .box{
-    width:40%;
-    padding:20px;
-    background:rgba(255,255,255,0.05);
-    border-radius:15px;
-    border:1px solid rgba(255,255,255,0.1);
+    input{
+    width:100%;
+    padding:14px;
+    margin:8px 0;
+    border:none;
+    border-radius:12px;
+    font-size:18px;
     }
     
     button{
-    padding:10px 15px;
-    margin:5px;
     border:none;
-    border-radius:10px;
-    background:#1e293b;
-    color:white;
+    padding:14px 22px;
+    border-radius:14px;
+    font-size:18px;
+    font-weight:bold;
     cursor:pointer;
-    transition:0.2s;
+    margin:8px;
+    background:#2563eb;
+    color:white;
+    transition:.3s;
     }
     
     button:hover{
     transform:scale(1.05);
     }
     
-    .selected{
-    background:linear-gradient(90deg,#00e5ff,#7c4dff) !important;
-    box-shadow:0 0 15px #00e5ff;
+    .escolhas button{
+    width:120px;
+    font-size:20px;
     }
     
-    #result{
-    color:#00e5ff;
+    #msg{
     margin-top:20px;
+    font-size:22px;
+    font-weight:bold;
+    color:#22c55e;
+    white-space:pre-line;
+    }
+    
+    .hidden{
+    display:none;
+    }
+    
+    @media(max-width:600px){
+    
+    h1{
+    font-size:28px;
+    }
+    
+    .escolhas button{
+    width:100%;
+    }
+    
     }

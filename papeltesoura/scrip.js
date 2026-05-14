@@ -1,70 +1,93 @@
-let p1 = "";
-let p2 = "";
+let nomes = [];
+let escolhas = [];
+let turno = 0;
 
-function select(player, choice, btn){
+function iniciar(){
 
-// PLAYER 1
-if(player === 1){
-p1 = choice;
+nomes[0] = document.getElementById("j1").value || "Jogador 1";
+nomes[1] = document.getElementById("j2").value || "Jogador 2";
 
-document.querySelectorAll("#player1 button")
-.forEach(b => b.classList.remove("selected"));
+document.getElementById("inicio").classList.add("hidden");
+document.getElementById("jogo").classList.remove("hidden");
 
-btn.classList.add("selected");
+document.getElementById("vez").innerHTML =
+"🎯 Vez de " + nomes[0];
 
-document.getElementById("show1").innerText = choice;
-document.getElementById("msg").innerText = "Jogador 2 escolha";
 }
 
-// PLAYER 2
-if(player === 2){
-p2 = choice;
+function escolher(opcao){
 
-document.querySelectorAll("#player2 button")
-.forEach(b => b.classList.remove("selected"));
+escolhas[turno] = opcao;
 
-btn.classList.add("selected");
+if(turno == 0){
 
-document.getElementById("show2").innerText = choice;
+turno = 1;
+
+document.getElementById("msg").innerHTML =
+"✅ Escolha salva!<br>Passe para " + nomes[1];
+
+document.getElementById("vez").innerHTML =
+"🎯 Vez de " + nomes[1];
+
+return;
+
 }
 
-check();
+resultado();
+
 }
 
-function check(){
+function resultado(){
 
-if(p1 === "" || p2 === "") return;
+let j1 = escolhas[0];
+let j2 = escolhas[1];
 
-let res = document.getElementById("result");
+let texto = nomes[0] + ": " + emoji(j1) + "\n";
+texto += nomes[1] + ": " + emoji(j2) + "\n\n";
 
-if(p1 === p2){
-res.innerText = "⚖ Empate!";
-}
-else if(
-(p1==="pedra" && p2==="tesoura") ||
-(p1==="papel" && p2==="pedra") ||
-(p1==="tesoura" && p2==="papel")
+if(j1 == j2){
+
+texto += "😐 EMPATE!";
+
+}else if(
+(j1=="pedra" && j2=="tesoura") ||
+(j1=="papel" && j2=="pedra") ||
+(j1=="tesoura" && j2=="papel")
 ){
-res.innerText = "🏆 Jogador 1 venceu!";
+
+texto += "🏆 " + nomes[0] + " venceu!";
+
+}else{
+
+texto += "🏆 " + nomes[1] + " venceu!";
+
 }
-else{
-res.innerText = "🏆 Jogador 2 venceu!";
+
+document.getElementById("msg").innerHTML = texto;
+
+document.getElementById("vez").innerHTML = "Fim da Rodada";
+
+setTimeout(reiniciar,4000);
+
 }
 
-document.getElementById("msg").innerText = "Fim da rodada";
+function emoji(v){
+
+if(v=="pedra") return "✊";
+if(v=="papel") return "📄";
+return "✂️";
+
 }
 
-function reset(){
+function reiniciar(){
 
-p1 = "";
-p2 = "";
+turno = 0;
+escolhas = [];
 
-document.getElementById("show1").innerText = "❓";
-document.getElementById("show2").innerText = "❓";
-document.getElementById("result").innerText = "";
-document.getElementById("msg").innerText = "Jogador 1 escolha";
+document.getElementById("vez").innerHTML =
+"🎯 Vez de " + nomes[0];
 
-document.querySelectorAll("button").forEach(b=>{
-b.classList.remove("selected");
-});
+document.getElementById("msg").innerHTML =
+"Nova rodada iniciada!";
+
 }

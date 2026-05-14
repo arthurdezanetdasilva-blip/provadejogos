@@ -4,24 +4,24 @@
     padding:0;
     box-sizing:border-box;
     font-family:'Poppins', sans-serif;
-    }
-    
-    body{
+}
+
+/* FUNDO */
+body{
     min-height:100vh;
     display:flex;
     flex-direction:column;
     align-items:center;
     justify-content:center;
-    
-    /* fundo futurista */
+
     background: radial-gradient(circle at top, #0b1020, #050816);
     color:white;
     padding:20px;
     overflow:hidden;
-    }
-    
-    /* efeito de luz no fundo */
-    body::before{
+}
+
+/* LUZES DE FUNDO */
+body::before{
     content:"";
     position:absolute;
     width:400px;
@@ -31,9 +31,9 @@
     top:-100px;
     left:-100px;
     opacity:0.3;
-    }
-    
-    body::after{
+}
+
+body::after{
     content:"";
     position:absolute;
     width:400px;
@@ -43,10 +43,10 @@
     bottom:-100px;
     right:-100px;
     opacity:0.3;
-    }
-    
-    /* TÍTULO */
-    h1{
+}
+
+/* TÍTULO */
+h1{
     font-size:2.5rem;
     margin-bottom:20px;
     background:linear-gradient(90deg,#00e5ff,#7c4dff);
@@ -54,81 +54,81 @@
     -webkit-background-clip:text;
     -webkit-text-fill-color:transparent;
     text-align:center;
-    }
-    
-    /* TEXTOS */
-    p{
+}
+
+/* TEXTOS */
+p{
     margin:10px 0;
     opacity:0.8;
-    }
-    
-    /* INPUTS */
-    input{
+}
+
+/* INPUTS */
+input{
     width:250px;
     padding:12px;
     margin:10px 0;
     border:none;
     border-radius:12px;
-    
+
     background:rgba(255,255,255,0.08);
     color:white;
     outline:none;
-    
+
     backdrop-filter:blur(10px);
     border:1px solid rgba(255,255,255,0.1);
-    
+
     transition:0.3s;
-    }
-    
-    input:focus{
+}
+
+input:focus{
     border:1px solid #00e5ff;
     box-shadow:0 0 10px #00e5ff;
-    }
-    
-    /* BOTÕES */
-    button{
+}
+
+/* BOTÕES */
+button{
     padding:12px 20px;
     margin:10px;
     border:none;
     border-radius:12px;
     cursor:pointer;
-    
+
     background:linear-gradient(90deg,#00e5ff,#7c4dff);
     color:white;
     font-weight:bold;
-    
+
     transition:0.3s;
-    }
-    
-    button:hover{
+}
+
+button:hover{
     transform:scale(1.05);
     box-shadow:0 0 15px #00e5ff;
-    }
-    
-    /* MENSAGEM */
-    h2{
+}
+
+/* MENSAGEM */
+h2{
     margin-top:20px;
     font-size:1.5rem;
     color:#00e5ff;
     text-align:center;
-    }
-    
-    /* LINK VOLTAR */
-    a{
+}
+
+/* LINK VOLTAR */
+a{
     margin-top:30px;
     color:white;
     text-decoration:none;
     opacity:0.7;
     transition:0.3s;
-    }
-    
-    a:hover{
+}
+
+a:hover{
     opacity:1;
     color:#00e5ff;
-    }
-    
-    /* CARD CENTRAL (opcional se quiser melhorar layout) */
-    .container{
+}
+
+/* CARD DO JOGO */
+.card{
     background:rgba(255,255,255,0.05);
     padding:30px;
     border-radius:20px;
@@ -136,4 +136,13 @@
     border:1px solid rgba(255,255,255,0.1);
     box-shadow:0 0 30px rgba(0,229,255,0.1);
     text-align:center;
-    }
+    z-index:1;
+}
+
+/* LINHA DIVISÓRIA */
+hr{
+    border:0;
+    height:1px;
+    background:rgba(255,255,255,0.2);
+    margin:15px 0;
+}

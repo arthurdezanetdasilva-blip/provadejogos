@@ -2,27 +2,29 @@
 <html lang="pt-br">
 <head>
 <meta charset="UTF-8">
-<title>Adivinhação</title>
+<title>Adivinhação 1 a 100</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<h1>🔢 Adivinhação Multiplayer</h1>
+<h1>🔢 Adivinhação 1 a 100 (2 Jogadores)</h1>
 
-<p>Jogador 1 define o número</p>
-<input id="num">
+<div class="card">
 
-<button onclick="setar()">Definir</button>
+<p>O sistema escolheu um número de 1 a 100</p>
 
-<p>Jogador 2 tenta adivinhar</p>
-<input id="chute">
+<h2 id="turno">Clique em iniciar</h2>
 
-<button onclick="tentar()">Tentar</button>
+<input id="chute" type="number" min="1" max="100" disabled>
+
+<button onclick="tentar()" disabled id="btn">Tentar</button>
+
+<button onclick="iniciar()">Iniciar Jogo</button>
 
 <h2 id="msg"></h2>
 
-<a href="/provadejogos/index1.html">⬅ Voltar</a>
+</div>
 
 <script src="script.js"></script>
 </body>
