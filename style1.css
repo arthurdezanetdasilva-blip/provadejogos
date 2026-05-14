@@ -122,4 +122,193 @@
     grid-template-columns:1fr;
     }
     
+    }*{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+        font-family:Poppins,sans-serif;
+        -webkit-tap-highlight-color:transparent;
+    }
+    
+    html,body{
+        width:100%;
+        overflow-x:hidden;
+        user-select:none;
+        -webkit-user-select:none;
+        -webkit-touch-callout:none;
+        touch-action:manipulation;
+    }
+    
+    body{
+        background:#050816;
+        color:white;
+        min-height:100vh;
+        padding:40px;
+        overflow-x:hidden;
+    }
+    
+    .bg{
+        position:fixed;
+        inset:0;
+        width:100%;
+        height:100%;
+        background:
+        radial-gradient(circle at top,#00e5ff33,transparent),
+        radial-gradient(circle at bottom,#7c4dff33,transparent);
+        z-index:-1;
+    }
+    
+    header{
+        text-align:center;
+        margin-bottom:40px;
+    }
+    
+    header h1{
+        font-size:clamp(2rem,6vw,3.5rem);
+        line-height:1.1;
+        background:linear-gradient(90deg,#00e5ff,#7c4dff);
+        background-clip:text;
+        -webkit-background-clip:text;
+        -webkit-text-fill-color:transparent;
+        word-break:break-word;
+    }
+    
+    header p{
+        margin-top:10px;
+        opacity:.8;
+        font-size:clamp(.95rem,2.5vw,1.1rem);
+        padding:0 10px;
+    }
+    
+    .menu{
+        display:grid;
+        grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+        gap:20px;
+        width:100%;
+    }
+    
+    .card{
+        width:100%;
+        background:rgba(255,255,255,0.06);
+        backdrop-filter:blur(10px);
+        border:1px solid rgba(255,255,255,0.1);
+        padding:25px;
+        border-radius:18px;
+        text-align:center;
+        transition:.3s;
+    }
+    
+    .card:hover{
+        transform:translateY(-10px);
+        box-shadow:0 0 25px #00e5ff55;
+    }
+    
+    .card h2{
+        margin-bottom:10px;
+        font-size:clamp(1.2rem,3vw,1.5rem);
+    }
+    
+    .card p{
+        opacity:.8;
+        line-height:1.5;
+        font-size:.95rem;
+    }
+    
+    .card a{
+        display:inline-block;
+        margin-top:15px;
+        padding:12px 25px;
+        border-radius:12px;
+        background:linear-gradient(90deg,#00e5ff,#7c4dff);
+        color:white;
+        text-decoration:none;
+        font-weight:bold;
+        transition:.3s;
+        font-size:.95rem;
+    }
+    
+    .card a:hover{
+        transform:scale(1.05);
+    }
+    
+    .destaque{
+        border:1px solid #00e5ff;
+        box-shadow:0 0 20px #00e5ff44;
+    }
+    
+    footer{
+        text-align:center;
+        margin-top:50px;
+        opacity:0.6;
+        font-size:.9rem;
+    }
+    
+    /* TABLETS */
+    @media(max-width:900px){
+    
+        body{
+            padding:25px;
+        }
+    
+        .menu{
+            grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+        }
+    
+    }
+    
+    /* CELULARES */
+    @media(max-width:700px){
+    
+        body{
+            padding:18px;
+        }
+    
+        header{
+            margin-bottom:30px;
+        }
+    
+        .menu{
+            grid-template-columns:1fr;
+            gap:16px;
+        }
+    
+        .card{
+            padding:20px;
+            border-radius:16px;
+        }
+    
+        .card a{
+            width:100%;
+            padding:14px;
+        }
+    
+    }
+    
+    /* CELULARES PEQUENOS */
+    @media(max-width:400px){
+    
+        body{
+            padding:14px;
+        }
+    
+        header h1{
+            font-size:1.8rem;
+        }
+    
+        header p{
+            font-size:.9rem;
+        }
+    
+        .card{
+            padding:18px;
+        }
+    
+        .card h2{
+            font-size:1.1rem;
+        }
+    
+        .card p{
+            font-size:.88rem;
+        }
+    
     }

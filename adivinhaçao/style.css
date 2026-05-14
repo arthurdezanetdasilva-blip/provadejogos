@@ -3,10 +3,10 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:'Poppins', sans-serif;
+    font-family:'Poppins',sans-serif;
 }
 
-/* FUNDO */
+/* BODY */
 body{
     min-height:100vh;
     display:flex;
@@ -14,10 +14,11 @@ body{
     align-items:center;
     justify-content:center;
 
-    background: radial-gradient(circle at top, #0b1020, #050816);
+    background:radial-gradient(circle at top,#0b1020,#050816);
     color:white;
     padding:20px;
-    overflow:hidden;
+    overflow-x:hidden;
+    position:relative;
 }
 
 /* LUZES DE FUNDO */
@@ -31,6 +32,7 @@ body::before{
     top:-100px;
     left:-100px;
     opacity:0.3;
+    z-index:0;
 }
 
 body::after{
@@ -43,30 +45,57 @@ body::after{
     bottom:-100px;
     right:-100px;
     opacity:0.3;
+    z-index:0;
+}
+
+/* CARD */
+.card{
+    width:100%;
+    max-width:420px;
+
+    background:rgba(255,255,255,0.05);
+    padding:30px;
+    border-radius:20px;
+
+    backdrop-filter:blur(15px);
+    border:1px solid rgba(255,255,255,0.1);
+
+    box-shadow:0 0 30px rgba(0,229,255,0.1);
+
+    text-align:center;
+    z-index:1;
 }
 
 /* TÍTULO */
 h1{
-    font-size:2.5rem;
+    font-size:clamp(2rem,6vw,2.5rem);
     margin-bottom:20px;
+
     background:linear-gradient(90deg,#00e5ff,#7c4dff);
     background-clip:text;
     -webkit-background-clip:text;
     -webkit-text-fill-color:transparent;
+
     text-align:center;
+    line-height:1.2;
 }
 
 /* TEXTOS */
 p{
     margin:10px 0;
     opacity:0.8;
+    font-size:clamp(.9rem,2.5vw,1rem);
+    line-height:1.5;
 }
 
 /* INPUTS */
 input{
-    width:250px;
+    width:100%;
+    max-width:300px;
+
     padding:12px;
     margin:10px 0;
+
     border:none;
     border-radius:12px;
 
@@ -78,6 +107,7 @@ input{
     border:1px solid rgba(255,255,255,0.1);
 
     transition:0.3s;
+    font-size:1rem;
 }
 
 input:focus{
@@ -87,8 +117,12 @@ input:focus{
 
 /* BOTÕES */
 button{
+    width:100%;
+    max-width:300px;
+
     padding:12px 20px;
-    margin:10px;
+    margin:10px 0;
+
     border:none;
     border-radius:12px;
     cursor:pointer;
@@ -98,28 +132,34 @@ button{
     font-weight:bold;
 
     transition:0.3s;
+    font-size:1rem;
 }
 
 button:hover{
-    transform:scale(1.05);
+    transform:scale(1.03);
     box-shadow:0 0 15px #00e5ff;
 }
 
 /* MENSAGEM */
 h2{
     margin-top:20px;
-    font-size:1.5rem;
+    font-size:clamp(1.2rem,4vw,1.5rem);
     color:#00e5ff;
     text-align:center;
+    line-height:1.4;
 }
 
-/* LINK VOLTAR */
+/* LINK */
 a{
-    margin-top:30px;
+    display:inline-block;
+    margin-top:25px;
+
     color:white;
     text-decoration:none;
     opacity:0.7;
+
     transition:0.3s;
+    font-size:.95rem;
 }
 
 a:hover{
@@ -127,22 +167,63 @@ a:hover{
     color:#00e5ff;
 }
 
-/* CARD DO JOGO */
-.card{
-    background:rgba(255,255,255,0.05);
-    padding:30px;
-    border-radius:20px;
-    backdrop-filter:blur(15px);
-    border:1px solid rgba(255,255,255,0.1);
-    box-shadow:0 0 30px rgba(0,229,255,0.1);
-    text-align:center;
-    z-index:1;
-}
-
-/* LINHA DIVISÓRIA */
+/* LINHA */
 hr{
     border:0;
     height:1px;
     background:rgba(255,255,255,0.2);
     margin:15px 0;
+}
+
+/* TABLETS */
+@media(max-width:768px){
+
+    .card{
+        padding:25px;
+        border-radius:18px;
+    }
+
+}
+
+/* CELULARES */
+@media(max-width:500px){
+
+    body{
+        padding:15px;
+    }
+
+    .card{
+        padding:20px;
+        border-radius:16px;
+    }
+
+    input,
+    button{
+        max-width:100%;
+    }
+
+}
+
+/* CELULARES PEQUENOS */
+@media(max-width:350px){
+
+    .card{
+        padding:18px;
+    }
+
+    h1{
+        font-size:1.8rem;
+    }
+
+    p,
+    a{
+        font-size:.85rem;
+    }
+
+    input,
+    button{
+        padding:11px;
+        font-size:.9rem;
+    }
+
 }
